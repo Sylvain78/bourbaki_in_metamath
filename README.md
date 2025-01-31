@@ -1,1 +1,1 @@
-# bourbaki_in_metamath
+Bourbaki coded in metamath.
