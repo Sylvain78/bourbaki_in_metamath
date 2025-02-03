@@ -3,7 +3,9 @@ $c THEORIE $.
 $( lettres, lettres prim'ees et lettres diff'erentes $)
 
 $[ lettres.mm $]
-$c SIGNE SIGNE_LOGIQUE $.
+$c SIGNE THEORIE SIGNE_LOGIQUE SIGNE_SPECIFIQUE $.
+
+$( Les signes sp'ecifiques seront de poids 2. TODO : g'en'eraliser aux signes de poids n (cela n'ecessite d'avoir des entiers inuitifs et des listes). $)
 
 ${
 
@@ -331,6 +333,97 @@ cs3.tx. $f LETTRE x_' $.
 cs3.1 $e NOTIN x_' A_ $.
 cs3.2 $e CM A_' =^= ( x_' | x_ ) A_ $.
 cs3 $a tau x_ ( A_ ) =^= tau x_' ( A_' ) $.
+$}
+
+$( CS4 CS5 TODO $)
+
+$( 3. Constructions formatives $)
+$c PREMIERE_ESPECE DEUXIEME_ESPECE $.
+${
+$v A_ B_ $.
+cf1.tA $f ASSEMBLAGE A_ $.
+cf1.tB $f ASSEMBLAGE B_ $.
+cf1.1 $e CM A_ =^= tau B_ $.
+cf1 $a PREMIERE_ESPECE A_
+$}
+
+${
+$v A_ B_ x_ $.
+cf2.tA $f ASSEMBLAGE A_ $.
+cf2.tB $f ASSEMBLAGE B_ $.
+cf2.tx $f LETTRE x_ $.
+cf2.1 $e CM A_ =^= tau ( x_ ) B_ $.
+cf2 $a PREMIERE_ESPECE A_
+$}
+
+$( Premi`ere esp`ece : lettre ou tau $)
+${
+$v A_ x_ $.
+cf3.tA $f ASSEMBLAGE A_ $.
+cf3.tx $f LETTRE x_ $.
+$( Ici on utilise l'équivalence =^= pour les cas (x) $)
+cf3.1 $e CM A_ =^= x_ $.
+cf3 $a PREMIERE_ESPECE A_
+$}
+
+
+${ Deuxi`eme esp`ece : ou, non, signe spécifique $)
+
+${
+$v T_ A_ B_ $.
+cf4.tT $f THEORIE T_ $.
+cf4.tA $f ASSEMBLAGE A_ $.
+cf4.tB $f ASSEMBLAGE B_ $.
+cf4.1 $e CM A_ =^= \/ B_ $.
+cf4 $a DEUXIEME_ESPECE A_
+$}
+
+${
+$v T_ A_ B_ $.
+cf5.tT $f THEORIE T_ $.
+cf5.tA $f ASSEMBLAGE A_ $.
+cf5.tB $f ASSEMBLAGE B_ $.
+cf5.1 $e CM A_ =^= -. B_ $.
+cf5 $a DEUXIEME_ESPECE T_ A_
+$}
+
+
+${
+$v A_ T_ s_ $.
+cf6.tA $f ASSEMBLAGE A_ $.
+cf6.tT $f THEORIE T_ $.
+cf6.ts $f SIGNE_SPECIFIQUE T_ s_ $.
+cf6.1 $e CM A_ =^= s_ B_ $.
+cf6 $a DEUXIEME_ESPECE T_ A_
+$}
+
+$( Construction formative $)
+$c CONSTRUCTION_FORMATIVE $.
+${
+$v T_ x_ $.
+ax-cfa.tx $f LETTRE x_ $.
+ax-cfa.tT $f THEORIE T_ $.
+ax-cfa $a CONSTRUCTION_FORMATIVE T_ x_ $.
+$}
+
+${
+$v T_ A_ B_ $.
+ax-cfb.tT $f THEORIE T_ $.
+ax-cfb.tA $f ASSEMBLAGE A_ $.
+ax-cfb.1 $e DEUXIEME_ESPECE T_ B_ $.
+ax-cfb.2 $e CM A_ =^= -. B_ $.
+ax-cfb $a CONSTRUCTION_FORMATIVE T_ A_ $.
+$}
+
+${
+$v T_ A_ B_ C_ $.
+ax-cfc.tT $f THEORIE T_ $.
+ax-cfc.tA $f ASSEMBLAGE A_ $.
+ax-cfc.tB $f ASSEMBLAGE B_ $.
+ax-cfc.1 $e DEUXIEME_ESPECE T_ A_ $.
+ax-cfc.2 $e DEUXIEME_ESPECE T_ B_ $.
+ax-cfc.3 $e CM A_ =^= \/ B_ C_ $.
+ax-cfc $a CONSTRUCTION_FORMATIVE T_ A_ $.
 $}
 
 $( Par. 2. Thi'eor`emes $)
