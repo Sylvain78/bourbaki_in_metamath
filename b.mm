@@ -3,7 +3,7 @@ $c THEORIE $.
 $( lettres, lettres prim'ees et lettres diff'erentes $)
 
 $[ lettres.mm $]
-$c SIGNE THEORIE SIGNE_LOGIQUE SIGNE_SPECIFIQUE $.
+$c SIGNE SIGNE_LOGIQUE SIGNE_SPECIFIQUE $.
 
 $( Les signes sp'ecifiques seront de poids 2. TODO : g'en'eraliser aux signes de poids n (cela n'ecessite d'avoir des entiers inuitifs et des listes). $)
 
@@ -136,6 +136,9 @@ h1 $e CM A_ =^= B_ $.
 h2 $e CM B_ =^= C_ $.
 df-id_trans $a CM A_ =^= C_ $.
 $}
+
+$c \imply $.
+df-imply $a CM \imply =^= \/ -. $.
 
 ${
 $v A_ $.
@@ -344,7 +347,7 @@ $v A_ B_ $.
 cf1.tA $f ASSEMBLAGE A_ $.
 cf1.tB $f ASSEMBLAGE B_ $.
 cf1.1 $e CM A_ =^= tau B_ $.
-cf1 $a PREMIERE_ESPECE A_
+cf1 $a PREMIERE_ESPECE A_ $.
 $}
 
 ${
@@ -353,7 +356,7 @@ cf2.tA $f ASSEMBLAGE A_ $.
 cf2.tB $f ASSEMBLAGE B_ $.
 cf2.tx $f LETTRE x_ $.
 cf2.1 $e CM A_ =^= tau ( x_ ) B_ $.
-cf2 $a PREMIERE_ESPECE A_
+cf2 $a PREMIERE_ESPECE A_ $.
 $}
 
 $( Premi`ere esp`ece : lettre ou tau $)
@@ -361,13 +364,13 @@ ${
 $v A_ x_ $.
 cf3.tA $f ASSEMBLAGE A_ $.
 cf3.tx $f LETTRE x_ $.
-$( Ici on utilise l'équivalence =^= pour les cas (x) $)
+$( Ici on utilise l''equivalence =^= pour les cas (x) $)
 cf3.1 $e CM A_ =^= x_ $.
-cf3 $a PREMIERE_ESPECE A_
+cf3 $a PREMIERE_ESPECE A_ $.
 $}
 
 
-${ Deuxi`eme esp`ece : ou, non, signe spécifique $)
+$( Deuxi`eme esp`ece : ou, non, signe sp'ecifique $)
 
 ${
 $v T_ A_ B_ $.
@@ -375,7 +378,7 @@ cf4.tT $f THEORIE T_ $.
 cf4.tA $f ASSEMBLAGE A_ $.
 cf4.tB $f ASSEMBLAGE B_ $.
 cf4.1 $e CM A_ =^= \/ B_ $.
-cf4 $a DEUXIEME_ESPECE A_
+cf4 $a DEUXIEME_ESPECE A_ $.
 $}
 
 ${
@@ -384,17 +387,19 @@ cf5.tT $f THEORIE T_ $.
 cf5.tA $f ASSEMBLAGE A_ $.
 cf5.tB $f ASSEMBLAGE B_ $.
 cf5.1 $e CM A_ =^= -. B_ $.
-cf5 $a DEUXIEME_ESPECE T_ A_
+cf5 $a DEUXIEME_ESPECE T_ A_ $.
 $}
 
 
 ${
-$v A_ T_ s_ $.
+$v A_ B_ T_ s_ $.
 cf6.tA $f ASSEMBLAGE A_ $.
+cf6.tB $f ASSEMBLAGE B_ $.
+cf6.ts $f SIGNE s_ $.
 cf6.tT $f THEORIE T_ $.
-cf6.ts $f SIGNE_SPECIFIQUE T_ s_ $.
-cf6.1 $e CM A_ =^= s_ B_ $.
-cf6 $a DEUXIEME_ESPECE T_ A_
+cf6.1 $e SIGNE_SPECIFIQUE T_ s_ $.
+cf6.2 $e CM A_ =^= s_ B_ $.
+cf6 $a DEUXIEME_ESPECE T_ A_ $.
 $}
 
 $( Construction formative $)
@@ -410,6 +415,7 @@ ${
 $v T_ A_ B_ $.
 ax-cfb.tT $f THEORIE T_ $.
 ax-cfb.tA $f ASSEMBLAGE A_ $.
+ax-cfb.tB $f ASSEMBLAGE B_ $.
 ax-cfb.1 $e DEUXIEME_ESPECE T_ B_ $.
 ax-cfb.2 $e CM A_ =^= -. B_ $.
 ax-cfb $a CONSTRUCTION_FORMATIVE T_ A_ $.
@@ -420,34 +426,54 @@ $v T_ A_ B_ C_ $.
 ax-cfc.tT $f THEORIE T_ $.
 ax-cfc.tA $f ASSEMBLAGE A_ $.
 ax-cfc.tB $f ASSEMBLAGE B_ $.
+ax-cfc.tC $f ASSEMBLAGE C_ $.
 ax-cfc.1 $e DEUXIEME_ESPECE T_ A_ $.
 ax-cfc.2 $e DEUXIEME_ESPECE T_ B_ $.
 ax-cfc.3 $e CM A_ =^= \/ B_ C_ $.
 ax-cfc $a CONSTRUCTION_FORMATIVE T_ A_ $.
 $}
 
-$( Par. 2. Thi'eor`emes $)
-$c ou $.
+$c RELATION $.
+
+$( Par. 2. Th'eor`emes $)
+$c ou non $.
+
+${
+$v A_ T_ $.
+df-non.tA $f ASSEMBLAGE A_ $.
+df-non.tT $f THEORIE T_ $.
+df-non.1 $e RELATION T_ A_ $.
+df-non $a CM non ( A ) =^= -. A_ $.
+$}
+
+$c NON_CONSTANTE $.
 
 ${
 $v A_ B_ T_ $.
 df-ou.tA $f ASSEMBLAGE A_ $.
 df-ou.tB $f ASSEMBLAGE B_ $.
-df-ou.tT $f THEORIE  T_ $.
+df-ou.tT $f THEORIE T_ $.
 df-ou.1 $e RELATION A_ T_ $.
 df-ou.2 $e RELATION B_ T_ $.
 df-ou $a ( A_ ) ou ( B_ ) =^= \/ A_ B_ $.
 $}
+
+$( 1. Axiomes $)
+$c AXIOME SCHEMA $.
+
+$( 2. D'emonstrations $)
+$c THEOREME $.
 
 $( Par. 3. Th'eories logiques $)
 $c THEORIE_LOGIQUE $.
 $c S1 S2 S3 S4 $.
 
 ${
+$v A_ T_ $.
 s1.tA $f ASSEMBLAGE A_ $.
 s1.tT $f THEORIE_LOGIQUE T_ $.
 s1.1 $e RELATION T_ A_ $.
-s1 $a AXIOME T_ ( A ou A ) \imply A $.
+s1 $a AXIOME T_ ( A_ ou A_ ) \imply A_ $.
 $}
 
 ${
@@ -455,8 +481,27 @@ $v T_ $.
 schema_s1.tT $f THEORIE T_ $.
 schema_s1.1 $e THEORIE_LOGIQUE T_ $.
 schema_s1 $a SCHEMA S1 T_ $.
-
 $}
+
+$( Par 4. Th'eorie quantifi'ees $)
+
+$( 1. D'efinition des quantificateurs $)
+
+$c forall exists $.
+${
+$v R_ x_ $.
+df-exists.tR $f ASSEMBLAGE R_ $.
+df-exists.tx $f LETTRE x_ $.
+df-exists $a CM ( exists x_ ) R_ =^=  ( tau x_ ( R_ ) | x_ ) R_ $.
+$}
+
+${
+$v R_ x_ $.
+df-forall.tR $f ASSEMBLAGE R_ $.
+df-forall.tx $f LETTRE x_ $.
+df-forall $a CM ( forall x_ ) R_ =^= non ( ( exists x_ ) ( non R_ ) ) $.
+$}
+
 $( C27 $)
 ${
 $v R_ T_ x_ $.
@@ -466,5 +511,5 @@ c27.tx $f LETTRE x_ $.
 c27.1 $e THEORIE_LOGIQUE T_ $.
 c27.2 $e RELATION T_ R_  $.
 c27.3 $e NON_CONSTANTE x_ T_ $.
-c27 $a THEOREME T_ ( forall x_ ) R_  $.
+c27 $a THEOREME T_ ( forall x_ ) R_ $.
 $}
