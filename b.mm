@@ -137,8 +137,15 @@ h2 $e CM B_ =^= C_ $.
 df-id_trans $a CM A_ =^= C_ $.
 $}
 
-$c \imply $.
-df-imply $a CM \imply =^= \/ -. $.
+$c => $.
+df-imply $a CM => =^= \/ -. $.
+
+${
+$v A_ B_ $.
+ax-impl_notation.tA $f ASSEMBLAGE A_ $.
+ax-impl_notation.tB $f ASSEMBLAGE B_ $.
+ax-impl_notation $a CM A_ => B_ =^= => A_ B_ $.
+$}
 
 ${
 $v A_ $.
@@ -473,7 +480,7 @@ $v A_ T_ $.
 s1.tA $f ASSEMBLAGE A_ $.
 s1.tT $f THEORIE_LOGIQUE T_ $.
 s1.1 $e RELATION T_ A_ $.
-s1 $a AXIOME T_ ( A_ ou A_ ) \imply A_ $.
+s1 $a AXIOME T_ ( A_ ou A_ ) => A_ $.
 $}
 
 ${
@@ -513,3 +520,13 @@ c27.2 $e RELATION T_ R_  $.
 c27.3 $e NON_CONSTANTE x_ T_ $.
 c27 $a THEOREME T_ ( forall x_ ) R_ $.
 $}
+
+$( Par. 5. Th'eories 'egalitaires $)
+$c THEORIE_EGALITAIRE $.
+
+${
+$v T_ $.
+ax-theorie_egalitaire_logique.tT $f THEORIE_EGALITAIRE T_ $.
+ax-theorie_egalitaire_logique $a THEORIE_LOGIQUE T_ $.
+$}
+$c = $.
